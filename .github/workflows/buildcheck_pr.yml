@@ -1,0 +1,15 @@
+name: Check Build on PR
+
+on:
+  pull_request_target:
+    types: [opened, reopened, edited, labeled]
+jobs:
+  Manifest-Generator:
+    
+    uses: amalx-ssrc/tii_sel4_build_test/.github/workflows/pr.yml@tii/dev-manifest
+    with: 
+      REPO_OVERRIDE: ${{ github.event.pull_request.head.repo.full_name }}:${{ github.head_ref }}
+      BRANCH_OVERRIDE: ${{ github.head_ref }}
+    secrets:
+      JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      CI_SSH_KEY: ${{ secrets.CI_SSH_KEY}}
