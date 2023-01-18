@@ -6,7 +6,7 @@ on:
 jobs:
   Manifest-Generator:
     
-    uses: amalx-ssrc/tii_sel4_build_test/.github/workflows/pr.yml@tii/dev-manifest
+    uses: amalx-ssrc/tii_sel4_build/.github/workflows/pr.yml@tii/development
     with: 
       REPO_OVERRIDE: ${{ github.event.pull_request.head.repo.full_name }}:${{ github.head_ref }}
       BRANCH_OVERRIDE: ${{ github.head_ref }}
